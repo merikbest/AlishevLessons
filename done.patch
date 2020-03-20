@@ -1,0 +1,683 @@
+Index: AlishevLessons.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- AlishevLessons.iml	(date 1584554711075)
++++ AlishevLessons.iml	(date 1584554711075)
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4" />
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1584554858566)
++++ .idea/misc.xml	(date 1584554858566)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="FrameworkDetectionExcludesConfiguration">
++    <file type="web" url="file://$PROJECT_DIR$" />
++  </component>
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/spring/java/org/example/TestScoupe.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/TestScoupe.java	(date 1584644037374)
++++ src/main/spring/java/org/example/TestScoupe.java	(date 1584644037374)
+@@ -0,0 +1,18 @@
++package org.example;
++
++import org.springframework.context.support.ClassPathXmlApplicationContext;
++
++public class TestScoupe {
++    public static void main(String[] args) {
++        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext");
++
++        Music music1 = context.getBean("someRockMusic", Music.class);
++        Music music2 = context.getBean("classicalMusic", Music.class);
++
++        MusicPlayer player1 = new MusicPlayer(music1);
++        MusicPlayer player2 = new MusicPlayer(music2);
++        player1.playMusic();
++        player2.playMusic();
++        context.close();
++    }
++}
+Index: src/main/spring/resources/musicPlayer.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1251
+===================================================================
+--- src/main/spring/resources/musicPlayer.properties	(date 1584616262243)
++++ src/main/spring/resources/musicPlayer.properties	(date 1584616262243)
+@@ -0,0 +1,2 @@
++musicPlayer.name = Some name
++musicPlayer.volume = 70
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1584644154054)
++++ .idea/vcs.xml	(date 1584644154054)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: target/classes/applicationContext
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/applicationContext	(date 1584643010319)
++++ target/classes/applicationContext	(date 1584643010319)
+@@ -0,0 +1,44 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<beans xmlns="http://www.springframework.org/schema/beans"
++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++       xmlns:context="http://www.springframework.org/schema/context"
++       xsi:schemaLocation="http://www.springframework.org/schema/beans
++        http://www.springframework.org/schema/beans/spring-beans.xsd
++        http://www.springframework.org/schema/context
++        http://www.springframework.org/schema/context/spring-context.xsd">
++
++    <context:component-scan base-package="org.example"/>
++
++<!--    <context:property-placeholder location="classpath:musicPlayer.properties"/>-->
++<!--    <bean id="musicBean1"-->
++<!--          class="org.example.ClassicalMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicBean2"-->
++<!--          class="org.example.RockMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicBean3"-->
++<!--          class="org.example.RetroMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicPlayer" class="org.example.MusicPlayer" scope="prototype">-->
++<!--        <property name="music" ref="musicBean1"/>-->
++<!--&lt;!&ndash;        <property name="name" value="Hello world"/>&ndash;&gt;-->
++<!--&lt;!&ndash;        <property name="volume" value="50"/>&ndash;&gt;-->
++<!--        &lt;!&ndash;ИЛИ ЧЕРЕЗ ФАЙЛ musicPlayer.properties&ndash;&gt;-->
++<!--        <property name="name" value="${musicPlayer.name}"/>-->
++<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
++<!--    </bean>-->
++
++<!--    <bean id="musicPlayer2" class="org.example.MusicPlayer">-->
++<!--        <constructor-arg>-->
++<!--            <list>-->
++<!--                <ref bean="musicBean1"/>-->
++<!--                <ref bean="musicBean2"/>-->
++<!--                <ref bean="musicBean3"/>-->
++<!--            </list>-->
++<!--        </constructor-arg>-->
++<!--    </bean>-->
++
++</beans>
+\ No newline at end of file
+Index: src/main/spring/webapp/index.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/webapp/index.jsp	(date 1584554698775)
++++ src/main/spring/webapp/index.jsp	(date 1584554698775)
+@@ -0,0 +1,5 @@
++<html>
++<body>
++<h2>Hello World!</h2>
++</body>
++</html>
+Index: src/main/spring/webapp/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/webapp/WEB-INF/web.xml	(date 1584554698774)
++++ src/main/spring/webapp/WEB-INF/web.xml	(date 1584554698774)
+@@ -0,0 +1,7 @@
++<!DOCTYPE web-app PUBLIC
++ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
++ "http://java.sun.com/dtd/web-app_2_3.dtd" >
++
++<web-app>
++  <display-name>Archetype Created Web Application</display-name>
++</web-app>
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1584607878409)
++++ .idea/compiler.xml	(date 1584607878409)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="AlishevLessons" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: target/classes/musicPlayer.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1251
+===================================================================
+--- target/classes/musicPlayer.properties	(date 1584616262243)
++++ target/classes/musicPlayer.properties	(date 1584616262243)
+@@ -0,0 +1,2 @@
++musicPlayer.name = Some name
++musicPlayer.volume = 70
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1584644140356)
++++ .idea/.gitignore	(date 1584644140356)
+@@ -0,0 +1,2 @@
++# Default ignored files
++/workspace.xml
+\ No newline at end of file
+Index: src/main/spring/java/org/example/TestBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/TestBean.java	(date 1584557572092)
++++ src/main/spring/java/org/example/TestBean.java	(date 1584557572092)
+@@ -0,0 +1,24 @@
++package org.example;
++
++public class TestBean {
++    private String name;
++
++    public TestBean(String name) {
++        this.name = name;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    @Override
++    public String toString() {
++        return "TestBean{" +
++                "name='" + name + '\'' +
++                '}';
++    }
++}
+Index: src/main/spring/java/org/example/TestSpring.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/TestSpring.java	(date 1584621136148)
++++ src/main/spring/java/org/example/TestSpring.java	(date 1584621136148)
+@@ -0,0 +1,18 @@
++package org.example;
++
++import org.springframework.context.support.ClassPathXmlApplicationContext;
++
++public class TestSpring {
++    public static void main(String[] args) {
++        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext");
++
++        MusicPlayer musicPlayer = context.getBean("musicPlayer2", MusicPlayer.class);
++        musicPlayer.playMusic();
++
++        System.out.println(musicPlayer.getName());
++        System.out.println(musicPlayer.getVolume());
++
++
++        context.close();
++    }
++}
+\ No newline at end of file
+Index: src/main/spring/resources/applicationContext
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/resources/applicationContext	(date 1584643010319)
++++ src/main/spring/resources/applicationContext	(date 1584643010319)
+@@ -0,0 +1,44 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<beans xmlns="http://www.springframework.org/schema/beans"
++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++       xmlns:context="http://www.springframework.org/schema/context"
++       xsi:schemaLocation="http://www.springframework.org/schema/beans
++        http://www.springframework.org/schema/beans/spring-beans.xsd
++        http://www.springframework.org/schema/context
++        http://www.springframework.org/schema/context/spring-context.xsd">
++
++    <context:component-scan base-package="org.example"/>
++
++<!--    <context:property-placeholder location="classpath:musicPlayer.properties"/>-->
++<!--    <bean id="musicBean1"-->
++<!--          class="org.example.ClassicalMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicBean2"-->
++<!--          class="org.example.RockMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicBean3"-->
++<!--          class="org.example.RetroMusic" >-->
++<!--    </bean>-->
++
++<!--    <bean id="musicPlayer" class="org.example.MusicPlayer" scope="prototype">-->
++<!--        <property name="music" ref="musicBean1"/>-->
++<!--&lt;!&ndash;        <property name="name" value="Hello world"/>&ndash;&gt;-->
++<!--&lt;!&ndash;        <property name="volume" value="50"/>&ndash;&gt;-->
++<!--        &lt;!&ndash;ИЛИ ЧЕРЕЗ ФАЙЛ musicPlayer.properties&ndash;&gt;-->
++<!--        <property name="name" value="${musicPlayer.name}"/>-->
++<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
++<!--    </bean>-->
++
++<!--    <bean id="musicPlayer2" class="org.example.MusicPlayer">-->
++<!--        <constructor-arg>-->
++<!--            <list>-->
++<!--                <ref bean="musicBean1"/>-->
++<!--                <ref bean="musicBean2"/>-->
++<!--                <ref bean="musicBean3"/>-->
++<!--            </list>-->
++<!--        </constructor-arg>-->
++<!--    </bean>-->
++
++</beans>
+\ No newline at end of file
+Index: src/main/spring/java/org/example/Music.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/Music.java	(date 1584560132047)
++++ src/main/spring/java/org/example/Music.java	(date 1584560132047)
+@@ -0,0 +1,5 @@
++package org.example;
++
++public interface Music {
++    String getSong();
++}
+Index: src/main/spring/java/org/example/RockMusic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/RockMusic.java	(date 1584643217717)
++++ src/main/spring/java/org/example/RockMusic.java	(date 1584643217717)
+@@ -0,0 +1,11 @@
++package org.example;
++
++import org.springframework.stereotype.Component;
++
++@Component("someRockMusic")
++public class RockMusic implements Music{
++    @Override
++    public String getSong() {
++        return "Heretic anthem";
++    }
++}
+Index: src/main/spring/java/org/example/ClassicalMusic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/ClassicalMusic.java	(date 1584643954628)
++++ src/main/spring/java/org/example/ClassicalMusic.java	(date 1584643954628)
+@@ -0,0 +1,16 @@
++package org.example;
++
++import org.springframework.stereotype.Component;
++
++@Component
++public class ClassicalMusic implements Music {
++
++//    public static ClassicalMusic getClassicalMusic() {
++//        return new ClassicalMusic();
++//    }
++
++    @Override
++    public String getSong() {
++        return "Classic song";
++    }
++}
+Index: src/main/spring/java/org/example/MusicPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/MusicPlayer.java	(date 1584643637228)
++++ src/main/spring/java/org/example/MusicPlayer.java	(date 1584643637228)
+@@ -0,0 +1,65 @@
++package org.example;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class MusicPlayer {
++    private Music music;
++    private List<Music> musicList = new ArrayList<>();
++    private String name;
++    private int volume;
++
++    public MusicPlayer() {
++    }
++
++
++    public MusicPlayer(Music music) {
++        this.music = music;
++    }
++
++    public MusicPlayer(List<Music> musicList) {
++        this.musicList = musicList;
++    }
++
++    public Music getMusic() {
++        return music;
++    }
++
++    public void setMusic(Music music) {
++        this.music = music;
++    }
++
++    public List<Music> getMusicList() {
++        return musicList;
++    }
++
++    public void setMusicList(List<Music> musicList) {
++        this.musicList = musicList;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public int getVolume() {
++        return volume;
++    }
++
++    public void setVolume(int volume) {
++        this.volume = volume;
++    }
++
++//    public void playMusic() {
++//        for (Music music : musicList) {
++//            System.out.println(music.getSong());
++//        }
++//    }
++
++    public void playMusic() {
++        System.out.println(music.getSong());
++    }
++}
+Index: src/main/spring/java/org/example/RetroMusic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/spring/java/org/example/RetroMusic.java	(date 1584619657324)
++++ src/main/spring/java/org/example/RetroMusic.java	(date 1584619657324)
+@@ -0,0 +1,8 @@
++package org.example;
++
++public class RetroMusic implements Music {
++    @Override
++    public String getSong() {
++        return "technoir";
++    }
++}
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1584554989916)
++++ pom.xml	(date 1584554989916)
+@@ -0,0 +1,85 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++  <modelVersion>4.0.0</modelVersion>
++
++  <groupId>org.example</groupId>
++  <artifactId>AlishevLessons</artifactId>
++  <version>1.0-SNAPSHOT</version>
++  <packaging>war</packaging>
++
++  <name>AlishevLessons Maven Webapp</name>
++  <!-- FIXME change it to the project's website -->
++  <url>http://www.example.com</url>
++
++  <properties>
++    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++    <maven.compiler.source>1.7</maven.compiler.source>
++    <maven.compiler.target>1.7</maven.compiler.target>
++  </properties>
++
++  <dependencies>
++    <dependency>
++      <groupId>junit</groupId>
++      <artifactId>junit</artifactId>
++      <version>4.11</version>
++      <scope>test</scope>
++    </dependency>
++    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
++    <dependency>
++      <groupId>org.springframework</groupId>
++      <artifactId>spring-core</artifactId>
++      <version>5.2.4.RELEASE</version>
++    </dependency>
++    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
++    <dependency>
++      <groupId>org.springframework</groupId>
++      <artifactId>spring-beans</artifactId>
++      <version>5.2.4.RELEASE</version>
++    </dependency>
++    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
++    <dependency>
++      <groupId>org.springframework</groupId>
++      <artifactId>spring-context</artifactId>
++      <version>5.2.4.RELEASE</version>
++    </dependency>
++  </dependencies>
++
++  <build>
++    <finalName>AlishevLessons</finalName>
++    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
++      <plugins>
++        <plugin>
++          <artifactId>maven-clean-plugin</artifactId>
++          <version>3.1.0</version>
++        </plugin>
++        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
++        <plugin>
++          <artifactId>maven-resources-plugin</artifactId>
++          <version>3.0.2</version>
++        </plugin>
++        <plugin>
++          <artifactId>maven-compiler-plugin</artifactId>
++          <version>3.8.0</version>
++        </plugin>
++        <plugin>
++          <artifactId>maven-surefire-plugin</artifactId>
++          <version>2.22.1</version>
++        </plugin>
++        <plugin>
++          <artifactId>maven-war-plugin</artifactId>
++          <version>3.2.2</version>
++        </plugin>
++        <plugin>
++          <artifactId>maven-install-plugin</artifactId>
++          <version>2.5.2</version>
++        </plugin>
++        <plugin>
++          <artifactId>maven-deploy-plugin</artifactId>
++          <version>2.8.2</version>
++        </plugin>
++      </plugins>
++    </pluginManagement>
++  </build>
++</project>
+\ No newline at end of file
+diff --git target/classes/org/example/RockMusic.class target/classes/org/example/RockMusic.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..148ecd1e92dc6c2effabe9dc0190b9b9857761be
+GIT binary patch
+literal 527
+zc${sJ%T59@6o&tD8}2tj#Fg%VL}%erV`4~*3)BP*`!d#{Fw>Hm4(eO!%EW~a;6oV?
+zBSB(Z^xXRY=S%zf_5K0i1p9fU(9B}jLd(LQg*HRxOe$&48Iqmum?72I_ky7^kV@P{
+z{zL?KeB#lhKF|*L#ypU#emzW?sSFuf10A@wc;f!T6ZTL$^Xn*-&MAZC3NzBmWoUG|
+zgBf3P+vCc$M<$TUB|(0qqrefDa<#6!u^z9a4DDg0jP%7=hLV66N@>H5)QX_J7#c2C
+ziyi{*i$@*I?a+uoX!E=fc3=Aot%Nd!NiVq<5up@nUu-BvWMC2YiabU-2V9w{@EMx_
+zK8K<D`+(cYOgM(2wk?fiI7E`ZnV9tF3ChHvn5E99%qXXOZ(y(Sb&g^t9%hiISo{&7
+oKozJip}aO9t<A}L;^mJuw`EPPtqD}(SVfI;f$r*bc0x410i)t|EC2ui
+
+diff --git target/classes/org/example/TestSpring.class target/classes/org/example/TestSpring.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..19b49d4764985caf01491ee01826ca6b777be733
+GIT binary patch
+literal 1104
+zc$}qEZBG+H5Pr5TJ$f91EfnwtK~Y<ZJp~lCh|(Gpl7b{9jmA&gb1jGWmb<OOPw?mH
+zhmvSw{Opf1&R&}ow0`m~nVFrLedd{+-Jid{eh09InvO|a*KlJLOF9y`If`2vZY#5(
+zBaLDP%P1*pMaLbKm1QdHu1dM5VO7H#LweKpY`MjdEEJmzsha;*Fig~KPwaKvmIx1c
+z%OOv;?pxex^3Yc6zB45c?TBHv?uTtt9CJ5tgn1w$*$6`0YgZ`4<+jI=FTANA@ekZ|
+zxYsrtGLFXec-SU{+>kJXX8E2J$CBZBTp@~4--X;2AN}yX*$<mhCkXsdnl*<<(LR@l
+zuUuz42prqu()PVtFO2}l+)iX$`wl-5A;a7`+Pi}gW$F#T6I$Yht=gOzv{Y6!4O~Q)
+zq5A)v=v?_<P6fZtV4NYl$}sZ}vIg$sfq@NVH9R!%2#*a^u&LpRfi0{Xc#3Dr+BQ&C
+ztn<TX#V|RTz{}Q=u!!7rVffUvwvbi9X|NkZGR}D7?kmOmpU`x|nSkiWeVi-ZIEkci
+z={ouyMWDCS_RW2QmQ+A+x6&i9M@P;uRVWU-I=LbHXq#$PI>b9e08QWNC<wawJ9HBZ
+zJF2x2%kd+DMNH81QeOg0jhkeSRwijidSv+&>~kERBAM<vF-_9w+j-28&R`aE{mq|{
+zq@Nz|HzZzXlcz}4OWBcZx(n?G(z`2NjDA6el-|Wy&oa6gFLiNYP--3;Newzd=Sg0o
+nf=d`jnfR^}Q$=B+SB7GjN$V)$3a%1~Jjr=ni+fs#5f^_0%JdKU
+
+diff --git target/classes/org/example/ClassicalMusic.class target/classes/org/example/ClassicalMusic.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..cb97832df3e9042ffe67954b594c9c8dd29fce17
+GIT binary patch
+literal 511
+zc${@m%TB{E5F9scQc9sup5g$vwi4vPu?PuO;uJulsCT!R;F8!;;_&z@I3aQ11NbP!
+zCPbnjaoO>%XLd&W@%i=+;1HWNl+mf8>tM~nx`Pb{`$#Hjjv1_8f5K26>1)Bz@T3yw
+zX*d<}6`uw)X?uFcg9(pi))&LFxs?gSj;CYa6^}fO0^yDVo+OgUXDPvu!SRI|YvnU^
+zdwp-t@3|Xr<-21OOXU-xHr8o86Q?rU+4-$M$oLFfm#H!`6cd?9vOZBt8*ZdlWIxF5
+zlPKGE6Z23!==jb}jEIFcPZ1^3VWgE%W>|*}hoN40>?V1v?f>I5G=BnLOy^=|7+Q<`
+zoQ6GEbX$fB9lAtFHdL$BxrB_cGI#}h$-kGV+WF8%jcWayfMt4t-YZxw#QTNVYL}k>
+UNLLr6Rv|5+k=G_#1+NW!0nh<*RR910
+
+diff --git target/classes/org/example/MusicPlayer.class target/classes/org/example/MusicPlayer.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..95918c286c215afdf7fd5a55991035814201f81b
+GIT binary patch
+literal 1967
+zc$|GxYfsZq7=F4-yNv>4upuHSD$tF~L@r)Hu8NWjB$<-<vCL+cbnVi0#Qi5fs1b>p
+z_yhb=#`m;cx3!%gc6!cxdEV!F&d#5|KYs&Q#Zd|()&#7l5W!j!1K428Bepzd%abIY
+zVsijnc$UI8b_DDS*y9kdH5+P$!)VDct3~CbT&rtJ@t6fSIVA0DNo`mh(xnUeQZ6<v
+zRV%UxOPAHEE?Z4g;V|n<Z-oGEQ%_8nYgC?b$~9T97R#2Y>Q&0|mxk74S?-7qTdJ;F
+z+Z>`&{*3w#jQ5loE~&b5(yW~;<{SB3vyqI7tewfG%Fb>uW_?f_943M!PBpoum^3UW
+zg)n53MkT*e7R~jJY1P}KB!79ha)yzpD%P>%cUH=WI-Y2FC1ShU@jpWyfg6|)1pE0e
+zHhRzm0za{DVyq3(dly2ZU67T6d8Q^w5NGa%(H+s1B^#YcOggfQ>g2a8C{;F^W<@zv
+znQiH=+gN7!BF1rp-0#TQGflb0=!zIdTErlRM2uogL>4&#`yvkTT)+zvhbRbmDdH6t
+zIgIzYbDG)F@%sEisaQRsa;sq}HPT`<DUo$Vt48sZ6kDWQk!$43NC4e2vux<qHv8Tt
+z%GcRR(=kIYQKSbOqgP65XcuA9K(O{cLq8H|?@1$lMaq#cv`)}zA5q!?>B2R*!Y@SL
+zT_bvh*cZFwCaptM!Mb8d5b_`<T@32MElkmu;Z3`EZ>c&$->eU>uyBQV2Q)))48Q>$
+zA%YnjIOjCGz--4varTJYlw%{R{~2NPj&_Y0b4O%pm+Lda@#~JKi$yY?gEO?di+irV
+zqD=;f7rr6>+0(<@!HF(&;+{G8J#)6HnhocDZlvt!6!lDZQRF>}yywC!=3E!LiNyRw
+zW<rQKYUU{>c~+iw6YBELAv8<9bA1T;J>vtO<xvRnjQ3N`hkCYv#W2r!zh_I-v)qRw
+z``fd@OH>ggB7E`@SqUXl#Df5l$twtcBJ0$%(T50ocWm&A_v#py{er$C!Tv};kmT?k
+SDL?8Cxw;$r;vU+StN#F5VMROu
+
+diff --git target/classes/org/example/Music.class target/classes/org/example/Music.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a5cb7e4b614d1fe61d848ec65e9d51ff5e41b9cd
+GIT binary patch
+literal 144
+zc$_=+Z`VEs1_omWPId-%b_Nbc2KMySlHmNjbVddd4Nae{#Ii*FoW#6z{os<K%)E4K
+zMh33n{L-T2RJY8WR3OK<v^X<a52TEdK`_54T|c!VF}ENmRUa(D$RL0)!9OW0HMxY1
+bk%5tci2(!{Sr{3Z8CXCp238=+#J~msDVriI
+
+diff --git target/classes/org/example/TestBean.class target/classes/org/example/TestBean.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..0dfeff963c4e5fd1814a4e58c5fd4329e968d63c
+GIT binary patch
+literal 819
+zc${^S&u-d45XQeXV1qHiArR7(Hg%hpKUM2Pk8N`xQZ7a50ff}!0xRms*vOcwQj~W}
+zrItvo)CcH8MVU3miGXUQ*_qjyZ-2Y<@Amg!0Pj%Oq2n-z93E?^=}6%)izjk_D$S8J
+z&oo#Xo-?F9J`oJ1&ISL*ZI^pvyBh|MH-68cesDY|JYlFbHjkTqYCiQx)LiU1o;aUR
+z1|sP3fg8#BL+<u@;K(>mro*q!jA6gy2V+}&=aZ=`?4Fo~ZNWXdP8*BxJfbN#n%j7^
+z*{UEL`pYbX-u36fP@FmPio#0nt!y_?zzYL;7!1{Qz4qL3M<O8lRnMjTijQ>z$9O5t
+zD+5(jh-MovgL$v`d2k_yAw#Mme?{ffsqjV&Z?=8gMk)rO_thGw|38LB1J!B342pab
+zd1>+s*dbe_=#26T?Rx75to8aAlpho+Fv;%F$N`l)G*Zc8m!kb;HA>h6B2TI^T4hvX
+zO*@K#OzS6<>qJhClKDu+SQf-GG~NX0BnDE~VDu<kq#pADh?;<?2}m^o`9wAH9_tTM
+jUv7{tWfr7MP_&u#1vK-D%mUeU$npb7D}g+Ssvg||0wtE~
+
+diff --git target/classes/org/example/TestScoupe.class target/classes/org/example/TestScoupe.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..1d60a3c42d2dd6cd88dbc446c16d4aa331f87986
+GIT binary patch
+literal 1090
+zc$}qETT|0e5dKbYX=9<Kl|sEDD7Lf^ui#jRQHnkVWGutT_;ebNC6L=Bsp8M_rJa!(
+zM_>I>j(gHd)z&BTuxGQo`S$yEPrm>7`~|>$JW?@@n+k5Fv8*D7+i6r3RHeI;MomFo
+zMFy+VtjVCJ;Esa345=rkV}_dy@k;f8A<=Z-3Wl6+I%2nLw}rpY+ZII%x@&OjfcvI=
+z9|jZQkr^<|>#pC?#3{EuOKAHd2wR5R^+bazY;HOXrOF%qn7`+m#hs4U3VqY*G@^do
+z?+`+9LYhG_TqhK#A;WgmA@F44ozHFY!SzqHVOk5ip6B|Z*0gvK?D6pEwQW7~Jj*nA
+zXu3{wP)2|$yBnAWsV@G(ct=Lh)Ay*cXYr51r^51h;a-$$oL5o3+H$+TAzqkrD7n!9
+z)}*K`a>z4m{l5a*0v`)Xc%m>BxVCuZ8YdA)hM6(mS-K_<7^V%`gD|XN<=j6MO5lfC
+ztRtVrhE!0Ryk&;`Xm>B$$HE|@vz5vFRyrcw5}dBY#)OLBBGDuoRsC=1hP+G@wkN?e
+zav?)iNyBmjfg6~jA45JdFu4e_GxVm>$>>b3^uazw=>pl*Ac!K_?9ji6SvoT)VQ%>G
+zH^iwDcz%Z1VIkf}La!B)g;Wp9SEP1oh4e3f_Y9fCdLQcJg!ERWmn<iGxKK`#sr8T@
+zHD9JCfC4pYrecvO)QSH(DQFP)r^J4n2uO090|J;wnNF4RmvEWrl}OnYTqVRsEa4h?
+Yal$C$Iu?*1q#R9TfkZLN%f3rL0oQ~ICIA2c
+
+diff --git target/classes/org/example/RetroMusic.class target/classes/org/example/RetroMusic.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a9e91a640346e9ef018d0c07da88dda44876bac
+GIT binary patch
+literal 410
+zc${re!AiqG6r9(jNvzehu@<l1T0wL0sCW@PMFlIpZ{m_}Nwc!uil3z?!Gj;*M~N>n
+z*dktL-kY77h4=aO{sG_=!wy{Z14KUdd<=Z-6TEX(Dtke2M&l{Lz0?nq5GJaWH>*V|
+z&AmtqR-!~_qL>P!s=X0iJ5x)-L846_%V)88EM$Bqt<l%3rOM6-elG1qmpNfD8Ygq{
+zB;rDpc|5U3l{p(a6TLE-yi!$PxXzwb-Yz`&guu#dR%&Gk!~cIG^w!<C>0D-((BJgd
+zHXOp?6A;>bj}|l6GX}iH%*5P2dIP=I&s&UMEjs8hc7F`m<_SFSV7Cb$H(@7gz5I!K
+M8&T&s8rH7fH;5Hb^Z)<=
+

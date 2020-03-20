@@ -6,13 +6,18 @@ public class TestScoupe {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext");
 
-        Music music1 = context.getBean("someRockMusic", Music.class);
-        Music music2 = context.getBean("classicalMusic", Music.class);
+//        MusicPlayerTwo musicPlayerTwo = context.getBean("musicPlayerTwo", MusicPlayerTwo.class);
+//        musicPlayerTwo.playMusic();
+//        context.close();
+        MusicPlayerTwo musicPlayerTwo = context.getBean("musicPlayerTwo", MusicPlayerTwo.class);
+        System.out.println(musicPlayerTwo.getName());
+        System.out.println(musicPlayerTwo.getVolume());
 
-        MusicPlayer player1 = new MusicPlayer(music1);
-        MusicPlayer player2 = new MusicPlayer(music2);
-        player1.playMusic();
-        player2.playMusic();
+
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+        boolean clasicalMusic = classicalMusic1 == classicalMusic2;
+        System.out.println(clasicalMusic);
         context.close();
     }
 }
